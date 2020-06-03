@@ -1,0 +1,15 @@
+<api xmlns="http://ws.apache.org/ns/synapse" name="_WebSocketClientService_" context="/websocketclient">
+    <resource methods="POST" url-mapping="/callback" faultSequence="_token_fault_">
+        <inSequence>
+            <log level="full"/>
+            <class name="org.wso2.carbon.apimgt.gateway.mediators.WebsocketClientCallbackMediator"/>
+            <respond/>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+    </resource>
+    <handlers>
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.common.SynapsePropertiesHandler"/>
+    </handlers>
+</api>
